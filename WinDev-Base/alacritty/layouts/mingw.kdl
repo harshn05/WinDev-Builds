@@ -1,0 +1,18 @@
+// On-demand WinDev tab: MinGW
+layout {
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    tab name="MinGW" {
+        pane command="cmd.exe" {
+            args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "MinGW"
+        }
+    }
+}

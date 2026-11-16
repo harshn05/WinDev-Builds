@@ -1,0 +1,70 @@
+// WinDev Zellij layout
+//
+// Default startup: CMD + WinDev
+// "+" / new tab: shows a menu (TabMenu.cmd) to pick the environment.
+// Other toolchains can be enabled below or opened on demand.
+//
+// Requirement: WINDEV must be inherited by Zellij's environment.
+// /d disables cmd AutoRun; /k keeps the shell open.
+
+layout {
+    // Shared tab bar and status bar
+    default_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    // Layout of every NEW tab (the "+" button, Ctrl+t then n).
+    // Instead of a fixed shell it runs a small menu; the chosen environment
+    // is loaded in this same pane and the tab is renamed to match.
+    new_tab_template {
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        pane command="cmd.exe" {
+            args "/d" "/k" r"%ALACRITTY%\layouts\TabMenu.cmd"
+        }
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+
+    // Common WinDev shell.
+    // Consumers override args to select a specific environment.
+    pane_template name="windev" {
+        command "cmd.exe"
+        args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit"
+    }
+
+    // Plain Windows CMD
+    tab name="CMD" {
+        pane command="cmd.exe" {
+            args "/d" "/k" "echo Hello from Windows cmd"
+        }
+    }
+
+    // Default WinDev shell
+    tab name="WinDev" focus=true {
+        windev
+    }
+
+    // ---- Single toolchains: enable only if needed ----
+    // tab name="MSYS2"   { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "MSYS2"; }; }
+    // tab name="MinGW"   { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "MinGW"; }; }
+    // tab name="Python"  { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python"; }; }
+    // tab name="MSVC"    { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "MSVC"; }; }
+    // tab name="ClangMinGW" { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "ClangMinGW"; }; }
+    // tab name="ClangMSVC" { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "ClangMSVC"; }; }
+
+    // ---- Python + toolchains ----
+    // tab name="Python+MSYS2"   { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python+MSYS2"; }; }
+    // tab name="Python+MinGW"   { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python+MinGW"; }; }
+    // tab name="Python+MSVC"    { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python+MSVC"; }; }
+    // tab name="Python+ClangMinGW" { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python+ClangMinGW"; }; }
+    // tab name="Python+ClangMSVC" { windev { args "/d" "/k" r"%WINDEV%\WinDev.cmd" "TerminalInit" "Python+ClangMSVC"; }; }
+}

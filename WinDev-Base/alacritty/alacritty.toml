@@ -1,0 +1,66 @@
+[window]
+title = "WinDev Terminal"
+dynamic_title = false
+decorations = "Full"
+opacity = 0.95
+blur = true               # Windows 11 me transparent text readability badhata hai
+padding = { x = 10, y = 8 }
+dynamic_padding = true
+dimensions = { columns = 130, lines = 38 }
+
+[font]
+size = 11.0
+builtin_box_drawing = true
+
+# Bold/italic automatically use the same family, so only normal is needed.
+[font.normal]
+family = "MesloLGL Nerd Font Propo"   # Note: Agar text overlap ho, change to standard Monospace
+style = "Regular"
+
+[scrolling]
+history = 20000
+
+[selection]
+save_to_clipboard = true
+# FIXED: TOML string properly escaped inside quotes to prevent parsing failure
+semantic_escape_chars = ",│`|\\\"' ()[]{}<>\\t"
+
+[cursor.style]
+shape = "Beam"
+blinking = "Off"
+
+[colors.primary]
+background = "#0d1117"
+foreground = "#e6edf3"
+
+[colors.cursor]
+text = "#0d1117"
+cursor = "#e6edf3"
+
+[colors.selection]
+text = "#e6edf3"
+background = "#264f78"
+
+[colors.normal]
+black = "#484f58"
+red = "#ff7b72"
+green = "#3fb950"
+yellow = "#d29922"
+blue = "#2f81f7"
+magenta = "#bc8cff"
+cyan = "#39c5cf"
+white = "#b1bac4"
+
+[colors.bright]
+black = "#6e7681"
+red = "#ffa198"
+green = "#56d364"
+yellow = "#e3b341"
+blue = "#79c0ff"
+magenta = "#d2a8ff"
+cyan = "#56d4dd"
+white = "#f0f6fc"
+
+[terminal.shell]
+program = "cmd.exe"
+args = ["/k", "%WINDEV_BASE%\\alacritty\\zellij.exe --layout windev-layout.kdl options --default-cwd %USERPROFILE%\\Desktop"]

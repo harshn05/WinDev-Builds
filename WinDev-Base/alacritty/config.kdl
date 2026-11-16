@@ -1,0 +1,50 @@
+
+
+themes {
+    github-dark {
+        fg 230 237 243        // #e6edf3  main text
+        bg 13 17 23           // #0d1117  background
+
+        black 33 38 45        // #21262d  ribbons / text on bright accents
+        red 255 123 114       // #ff7b72
+        green 126 231 135     // #7ee787
+        yellow 227 179 65     // #e3b341
+        blue 121 192 255      // #79c0ff
+        magenta 210 168 255   // #d2a8ff
+        orange 255 166 87     // #ffa657
+        cyan 86 212 221       // #56d4dd
+        white 177 186 196     // #b1bac4  secondary text
+    }
+}
+
+theme "github-dark"
+
+layout_dir "layouts"
+
+// ============================================================
+// WinDev environment shortcuts
+//
+// Alt + key         : Individual toolchain
+// Alt + Shift + key : Python + toolchain
+// ============================================================
+
+keybinds {
+    shared_except "locked" {
+        // Individual environments
+        bind "Alt m" { NewTab { layout "msys2"; }; }
+        bind "Alt g" { NewTab { layout "mingw"; }; }
+        bind "Alt p" { NewTab { layout "py"; }; }
+        bind "Alt v" { NewTab { layout "msvc"; }; }
+
+        bind "Alt 1" { NewTab { layout "clanggw"; }; }
+        bind "Alt 2" { NewTab { layout "clangvc"; }; }
+
+        // Python + toolchain environments
+        bind "Alt Shift m" { NewTab { layout "py-msys2"; }; }
+        bind "Alt Shift g" { NewTab { layout "py-mingw"; }; }
+        bind "Alt Shift v" { NewTab { layout "py-msvc"; }; }
+
+        bind "Alt Shift 1" { NewTab { layout "py-clanggw"; }; }
+        bind "Alt Shift 2" { NewTab { layout "py-clangvc"; }; }
+    }
+}
