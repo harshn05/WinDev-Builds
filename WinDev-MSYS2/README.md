@@ -69,6 +69,7 @@ pacman -R mingw-w64-ucrt-x86_64-qt6-doc
 6. clear pacman cache located in /var/cache/pacman/pkg/
 7. This directory roughly looks like:
 
+```
 .
 ├── autorebase.bat
 ├── bin
@@ -114,6 +115,7 @@ pacman -R mingw-w64-ucrt-x86_64-qt6-doc
 └── var
 
 16 directories, 27 files
+```
 
 
 
