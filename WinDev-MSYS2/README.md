@@ -56,3 +56,18 @@ fi
 # End of WinDev Custom Profile Loader
 # ============================================================
 ```
+3. Update pacman -Syu (do it 2-3 times)
+4. Install these packages
+
+```bash
+pacman -S axel make tree bc bison diffutils dos2unix flex m4 patch sharutils zip unrar mingw-w64-ucrt-x86_64-{vtk,itk,muparser,armadillo,cmake-gui,gcc,gcc-fortran,qt6,cli11,openvr,anari-sdk,boost,seacas,adios2,gl2ps,proj,openslide,eigen3,utf8cpp,exprtk,nlohmann-json,gtest,wxwidgets3.2,git-gui,graphviz,doxygen,ntldd,opencv,upx,octave,codeblocks,toolchain,qt-creator,indent,putty,clang,clang-tools-extra,llvm-openmp}
+```
+5. REMOVE LARGE and UNNECESSARY PACKAGES:
+```bash
+pacman -R mingw-w64-ucrt-x86_64-qt6-doc
+```
+6. clear pacman cache located in /var/cache/pacman/pkg/
+
+
+
+
