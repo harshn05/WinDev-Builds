@@ -67,6 +67,53 @@ pacman -S axel make tree bc bison diffutils dos2unix flex m4 patch sharutils zip
 pacman -R mingw-w64-ucrt-x86_64-qt6-doc
 ```
 6. clear pacman cache located in /var/cache/pacman/pkg/
+7. This directory roughly looks like:
+
+.
+├── autorebase.bat
+├── bin
+├── clang64
+├── clang64.exe
+├── clang64.ico
+├── clang64.ini
+├── clangarm64
+├── clangarm64.exe
+├── clangarm64.ico
+├── clangarm64.ini
+├── components.xml
+├── dev
+├── etc
+├── home
+├── InstallationLog.txt
+├── installer.dat
+├── installerResources
+├── mingw32
+├── mingw32.exe
+├── mingw32.ico
+├── mingw32.ini
+├── mingw64
+├── mingw64.exe
+├── mingw64.ico
+├── mingw64.ini
+├── msys2.exe
+├── msys2.ico
+├── msys2.ini
+├── msys2_shell.cmd
+├── network.xml
+├── opt
+├── proc
+├── tmp
+├── ucrt64
+├── ucrt64.exe
+├── ucrt64.ico
+├── ucrt64.ini
+├── uninstall.dat
+├── uninstall.exe
+├── uninstall.ini
+├── usr
+└── var
+
+16 directories, 27 files
 
 
 
